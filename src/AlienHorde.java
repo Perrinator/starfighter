@@ -51,10 +51,10 @@ public class AlienHorde {
             s = (int) (wave * 0.5);
             w = 40;
             h = 40;
-            if (wave * 3 != 20)
+            if (wave * 2 < 20)
                 size = 20;
             else
-                size = wave * 3;
+                size = wave * 2;
         }
         aliens = new ArrayList<Alien>();
         for (int i = 0; i < size; i++) {

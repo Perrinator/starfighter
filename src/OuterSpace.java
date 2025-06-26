@@ -86,9 +86,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
         } else if (keys[1] == true) {
             ship.move("RIGHT");
         } else if (keys[2] == true) {
-            ship.move("UP");
         } else if (keys[3] == true) {
-            ship.move("DOWN");
         }
 
 
@@ -152,7 +150,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
         }
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             if (ticks > 224) {
-                shots.add(new Ammo(ship.getX() + 20, ship.getY(), -5));
+                shots.add(new Ammo(ship.getX() + 20, ship.getY(), -10));
                 ticks = 0;
             }
         }
