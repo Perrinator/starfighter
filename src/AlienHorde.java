@@ -18,15 +18,15 @@ public class AlienHorde {
         //move down a row (75 pixels)
         //starting point is 25, 50
         //first add aliens with speed of 0 to make sure you spacing is good
-        int x = 25;
+        int x = 20;
         int y = 50;
         int s = 1;
         int w = 30;
         int h = 30;
         aliens = new ArrayList<Alien>();
         for (int i = 0; i < size; i++) {
-            if (x > 770) {
-                x = 25;
+            if (x > 750) {
+                x = 20;
                 y += 75;
             }
             aliens.add(new Alien(x, y, w, h, s));
@@ -36,7 +36,7 @@ public class AlienHorde {
     }
 
     public void createaliens(int size) {
-        int x = 25;
+        int x = 20;
         int y = 50;
         int s = 1;
         int w = 30;
@@ -58,8 +58,8 @@ public class AlienHorde {
         }
         aliens = new ArrayList<Alien>();
         for (int i = 0; i < size; i++) {
-            if (x > 770) {
-                x = 25;
+            if (x > 750) {
+                x = 20;
                 y += 75;
             }
             aliens.add(new Alien(x, y, w, h, s));
