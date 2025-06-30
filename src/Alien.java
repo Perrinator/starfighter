@@ -59,10 +59,10 @@ public class Alien extends MovingThing {
         //if alien is out of bounds change speed direction
         //and move the alien down a row (40 pixels)
         //constantly change the x position of the alien by the speed
-        if (getX() > 770) {
+        if (getX() > 750) {
             setY(getY() + 40);
             setSpeed(-1 * getSpeed());
-        } else if (getX() < 25) {
+        } else if (getX() < 20) {
             setY(getY() + 40);
             setSpeed(-1 * getSpeed());
         }
