@@ -29,8 +29,7 @@ public class Ship extends MovingThing {
         super.setWidth(w);
         super.setHeight(h);
         speed = s;
-        playerNUM = player;
-        if(playerNUM==1)
+        if(player!=1)
             try {
                 URL url = getClass().getResource("ship1.jpg");
                 image = ImageIO.read(url);

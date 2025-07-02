@@ -31,7 +31,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
         keys = new boolean[5];
 
         ship1 = new Ship( 360, 500, 50, 50, 3, 1);
-        ship2 = new Ship(260, 500, 50, 50, 3, 1);
+        ship2 = new Ship(260, 500, 50, 50, 3, 2);
 
         //instantiate what you need as you need it (from global objects above)
         //alienOne = new Alien(50,25,50,50,0);
