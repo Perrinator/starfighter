@@ -4,6 +4,7 @@ import java.awt.Image;
 import java.io.File;
 import javax.imageio.ImageIO;
 import java.io.IOException;
+import java.net.URL;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -32,8 +33,9 @@ public class Ammo extends MovingThing {
         speed = s;
 
         try {
-            File soundFile = new File("trimpew.wav");
-            AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+            URL audioURL = getClass().getResource("trimpew.wav");
+            assert audioURL != null;
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(audioURL);
             Clip clip = AudioSystem.getClip();
             clip.open(audioIn);
             clip.start();
