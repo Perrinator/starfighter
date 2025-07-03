@@ -78,14 +78,14 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 
 
         //add code to move Ship, Alien, etc.-- Part 1
-        if (keys[0] == true && ship1.getX()>0) {
+        if (keys[0] == true && ship1.getX()>360) {
             ship1.move("LEFT");
         } else if (keys[1] == true && ship1.getX()<740) {
             ship1.move("RIGHT");
         }
         if (keys[2] == true && ship2.getX()>0) {
             ship2.move("LEFT");
-        } else if (keys[3] == true && ship2.getX()<740) {
+        } else if (keys[3] == true && ship2.getX()<360) {
             ship2.move("RIGHT");
         }
 
@@ -110,6 +110,12 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 
         twoDGraph.drawImage(back, null, 0, 0);
         back = null;
+        try {
+            Thread.currentThread().sleep(1);
+        } catch (Exception e) {
+            //feel free to add something here, or not
+            System.out.println("bingus");
+        }
     }
 
 
