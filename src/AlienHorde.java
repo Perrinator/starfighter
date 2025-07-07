@@ -81,39 +81,36 @@ public class AlienHorde {
         for (Alien a : aliens) {
             a.draw(g);
         }
-        if (aliensKilled == 20) {
-            g.setColor(Color.BLACK);
-            g.fillRect(0, 0, 800, 600);
+        if (aliensKilled >= 20) {
+            for(int i = 0; i < 100; i++) {
+                g.setColor(Color.BLACK);
+                g.fillRect(0, 0, 800, 600);
 
-            g.setColor(Color.GREEN);
-            int charSize = 10;
-            int startX = 120;
-            int startY = 200;
+                g.setColor(Color.GREEN);
+                int charSize = 10;
+                int startX = 120;
+                int startY = 200;
 
-            String[] pattern = {
-                    "#    #  #####  #   #     #   #  #####  #   #  #####",
-                    "##   #  #      #   #     #   #  #   #  #   #  #    ",
-                    "# #  #  #      #   #     #   #  #   #  #   #  #    ",
-                    "#  # #  #####  # # #     # # #  #####  #   #  #### ",
-                    "#   ##  #      ## ##     ## ##  #   #   # #   #    ",
-                    "#    #  #      ## ##     ## ##  #   #   # #   #    ",
-                    "#    #  #####  #   #     #   #  #   #    #    #####"
-            };
+                String[] pattern = {
+                        "#    #  #####  #   #     #   #  #####  #   #  #####",
+                        "##   #  #      #   #     #   #  #   #  #   #  #    ",
+                        "# #  #  #      #   #     #   #  #   #  #   #  #    ",
+                        "#  # #  #####  # # #     # # #  #####  #   #  #### ",
+                        "#   ##  #      ## ##     ## ##  #   #   # #   #    ",
+                        "#    #  #      ## ##     ## ##  #   #   # #   #    ",
+                        "#    #  #####  #   #     #   #  #   #    #    #####"
+                };
 
-            for (int row = 0; row < pattern.length; row++) {
-                for (int col = 0; col < pattern[row].length(); col++) {
-                    if (pattern[row].charAt(col) == '#') {
-                        g.fillRect(startX + col * charSize, startY + row * charSize, charSize, charSize);
+                for (int row = 0; row < pattern.length; row++) {
+                    for (int col = 0; col < pattern[row].length(); col++) {
+                        if (pattern[row].charAt(col) == '#') {
+                            g.fillRect(startX + col * charSize, startY + row * charSize, charSize, charSize);
+                        }
                     }
                 }
+
             }
 
-            try {
-                //Thread.currentThread().sleep(1000);
-            } catch (Exception e) {
-                //feel free to add something here, or not
-                System.out.println("bingus");
-            }
             wave++;
             aliensKilled = 0;
             createaliens(20);
