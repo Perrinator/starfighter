@@ -1,9 +1,5 @@
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Image;
-import java.io.File;
-import javax.imageio.ImageIO;
-import java.io.IOException;
 import java.net.URL;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.AudioInputStream;
@@ -11,15 +7,6 @@ import javax.sound.sampled.AudioSystem;
 
 public class Ammo extends MovingThing {
     private int speed;
-
-    public Ammo() {
-        this(10, 10, 10, 10, 0);
-    }
-
-    public Ammo(int x, int y) {
-        //add code
-        this(x, y, 10, 10, 0);
-    }
 
     public Ammo(int x, int y, int s) {
         //add code
@@ -46,11 +33,6 @@ public class Ammo extends MovingThing {
 
     }
 
-    public void setSpeed(int s) {
-        //add code
-        speed = s;
-    }
-
     public int getSpeed() {
         //add code
         return speed;
@@ -58,9 +40,9 @@ public class Ammo extends MovingThing {
 
     public void draw(Graphics window) {
         //add code to draw the ammo
-        //ammo will be a yellow square
+        // will be a yellow square
         window.setColor(Color.YELLOW);
-        //if you don't set a color, your ammo will be black and you will not see it
+        //if you don't set a color, your ammo will be black, and you will not see it
         window.fillRect(getX(), getY(), getWidth(), getHeight());
     }
 
