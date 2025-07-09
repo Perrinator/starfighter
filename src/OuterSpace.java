@@ -11,8 +11,10 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 
 
     private AlienHorde horde;
-    private Bullets shots;
-    private int ticks;
+    private Bullets shotsONE;
+    private Bullets shotsTWO;
+    private int ticks1;
+    private int ticks2;
     private boolean DEVMODE = false;
 
     private Ship ship1;
@@ -31,11 +33,13 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 
         //instantiate what you need as you need it (from global objects above)
         horde = new AlienHorde(20);
-        shots = new Bullets();
+        shotsONE = new Bullets();
+        shotsTWO = new Bullets();
 
         this.addKeyListener(this);
         new Thread(this).start();
-        ticks = 0;
+        ticks1 = 0;
+        ticks2 = 0;
 
         setVisible(true);
     }
@@ -88,7 +92,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 
 
         //add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship -- Part 3
-        horde.removeDeadOnes(shots.getList());
+        horde.removeDeadOnes(shotsONE.getList());
+        horde.removeDeadOnes(shotsTWO.getList());
 
         //make sure you've drawn all your stuff
         ship1.draw(graphToBack);
@@ -96,8 +101,10 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 
         horde.drawEmAll(graphToBack);
 
-        shots.drawEmAll(graphToBack);
-        shots.moveEmAll();
+        shotsONE.drawEmAll(graphToBack);
+        shotsONE.moveEmAll();
+        shotsTWO.drawEmAll(graphToBack);
+        shotsTWO.moveEmAll();
 
 
         twoDGraph.drawImage(back, null, 0, 0);
@@ -120,7 +127,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
         }
         if (e.getKeyCode() == KeyEvent.VK_UP) {
             if (DEVMODE)
-                shots.add(new Ammo(ship1.getX() + 20, ship1.getY(), -5));
+                shotsONE.add(new Ammo(ship1.getX() + 20, ship1.getY(), -5));
         }
         if (e.getKeyCode() == KeyEvent.VK_A) {
             keys[2] = true;
@@ -130,7 +137,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
         }
         if (e.getKeyCode() == KeyEvent.VK_W) {
             if (DEVMODE)
-                shots.add(new Ammo(ship2.getX() + 20, ship1.getY(), -5));
+                shotsTWO.add(new Ammo(ship2.getX() + 20, ship2.getY(), -5));
         }
         if (e.getKeyCode() == KeyEvent.VK_X) {
             DEVMODE = !(DEVMODE);
@@ -146,9 +153,9 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
             keys[1] = false;
         }
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            if (ticks > 224) {
-                shots.add(new Ammo(ship1.getX() + 20, ship1.getY(), -10));
-                ticks = 0;
+            if (ticks1 > 224) {
+                shotsONE.add(new Ammo(ship1.getX() + 20, ship1.getY(), -10));
+                ticks1 = 0;
             }
         }
         if (e.getKeyCode() == KeyEvent.VK_A) {
@@ -158,9 +165,9 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
             keys[3] = false;
         }
         if (e.getKeyCode() == KeyEvent.VK_W) {
-            if (ticks > 224) {
-                shots.add(new Ammo(ship2.getX() + 20, ship2.getY(), -10));
-                ticks = 0;
+            if (ticks2 > 224) {
+                shotsTWO.add(new Ammo(ship2.getX() + 20, ship2.getY(), -10));
+                ticks2 = 0;
             }
         }
         repaint();
@@ -176,7 +183,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
         try {
             while(true) {
                 Thread.sleep(5);
-                ticks += 5;
+                ticks1 += 5;
+                ticks2 += 5;
                 repaint();
             }
         } catch (Exception e) {
