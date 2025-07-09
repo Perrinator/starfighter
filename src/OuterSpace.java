@@ -12,11 +12,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 
     private AlienHorde horde;
     private Bullets shots;
-    //private Ship ship;
-    //private Alien alienOne;
-    //private Alien alienTwo;
     private int ticks;
-    private int waveHolder = 1;
     private boolean DEVMODE = false;
 
     private Ship ship1;
@@ -34,8 +30,6 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
         ship2 = new Ship(260, 500, 50, 50, 3, 2);
 
         //instantiate what you need as you need it (from global objects above)
-        //alienOne = new Alien(50,25,50,50,0);
-        //alienTwo = new Alien(125,25,50,50,0);
         horde = new AlienHorde(20);
         shots = new Bullets();
 
@@ -51,7 +45,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
         if (horde.checkGameOver()) {
             gameOver(window);
             try {
-                Thread.currentThread().sleep(6000);
+                Thread.sleep(6000);
             } catch (Exception e) {
                 System.out.println("bingus");
             }
@@ -64,12 +58,12 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
         //set up the double buffering to make the game animation nice and smooth
         Graphics2D twoDGraph = (Graphics2D) window;
 
-        //take a snap shot of the current screen and save it as an image
+        //take a snapshot of the current screen and save it as an image
         //that is the exact same width and height as the current screen
         if (back == null)
             back = (BufferedImage) (createImage(getWidth(), getHeight()));
 
-        //create a graphics reference to the back ground image
+        //create a graphics reference to the background image
         //we will draw all changes on the background image
         Graphics graphToBack = back.createGraphics();
         //this sets the background for the graphics window
@@ -78,14 +72,14 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 
 
         //add code to move Ship, Alien, etc.-- Part 1
-        if (keys[0] == true && ship1.getX()>360) {
+        if (keys[0] && ship1.getX()>390) {
             ship1.move("LEFT");
-        } else if (keys[1] == true && ship1.getX()<740) {
+        } else if (keys[1] && ship1.getX()<740) {
             ship1.move("RIGHT");
         }
-        if (keys[2] == true && ship2.getX()>0) {
+        if (keys[2] && ship2.getX()>0) {
             ship2.move("LEFT");
-        } else if (keys[3] == true && ship2.getX()<360) {
+        } else if (keys[3] && ship2.getX()<330) {
             ship2.move("RIGHT");
         }
 
@@ -99,8 +93,6 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
         //make sure you've drawn all your stuff
         ship1.draw(graphToBack);
         ship2.draw(graphToBack);
-        //alienOne.draw(graphToBack);
-        //alienTwo.draw(graphToBack);
 
         horde.drawEmAll(graphToBack);
 
@@ -111,7 +103,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
         twoDGraph.drawImage(back, null, 0, 0);
         back = null;
         try {
-            Thread.currentThread().sleep(1);
+            Thread.sleep(1);
         } catch (Exception e) {
             //feel free to add something here, or not
             System.out.println("bingus");
@@ -177,13 +169,13 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
     public void keyTyped(KeyEvent e) {
         //no code needed here
         //method needs to be implemented
-        //because class implements KeyListner
+        //because class implements KeyListener
     }
 
     public void run() {
         try {
             while(true) {
-                Thread.currentThread().sleep(5);
+                Thread.sleep(5);
                 ticks += 5;
                 repaint();
             }
@@ -223,7 +215,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
             }
         }
         try {
-            Thread.currentThread().sleep(5000);
+            Thread.sleep(5000);
             System.exit(0);
         } catch (Exception e) {
             //feel free to add something here, or not
