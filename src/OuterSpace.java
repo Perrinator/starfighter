@@ -1,11 +1,10 @@
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Canvas;
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 
 import java.awt.image.BufferedImage;
+import java.net.URL;
 
 public class OuterSpace extends Canvas implements KeyListener, Runnable {
 
@@ -15,6 +14,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
     private Bullets shotsTWO;
     private int ticks1;
     private int ticks2;
+    private int UPCollected;
     private boolean DEVMODE = false;
 
     private Ship ship1;
@@ -42,6 +42,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
         ticks2 = 0;
 
         setVisible(true);
+
+        UPCollected = 0;
     }
 
     public void update(Graphics window) {
@@ -86,6 +88,12 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
         } else if (keys[3] && ship2.getX()<330) {
             ship2.move("RIGHT");
         }
+
+
+        if((int)(Math.random()*100)==1) {
+            Bullet_Upgrade UPSpawner = new Bullet_Upgrade((int)(Math.random()*100),(int)(Math.random()*100),30,30,3);
+        }
+
 
 
         //add code to fire a bullet - Part 3
