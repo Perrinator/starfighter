@@ -7,24 +7,14 @@ public class Bullet_Upgrade extends MovingThing {
     private Image image;
     private int X;
 
-    public Bullet_Upgrade() {
-        this(0, 0, 30, 30, 0);
-    }
 
-    public Bullet_Upgrade(int x, int y) {
-        //add code here
-        this(x, y, 30, 30, 0);
-    }
 
     @Override
     public void move(String direction) {
 
     }
 
-    public Bullet_Upgrade(int x, int y, int s) {
-        //add code here
-        this(x, y, 30, 30, s);
-    }
+
 
     public Bullet_Upgrade(int x, int y, int w, int h, int s) {
         //add code here
@@ -35,7 +25,7 @@ public class Bullet_Upgrade extends MovingThing {
         X = x;
         speed = s;
         try {
-            URL url = getClass().getResource("Bullet Upgrade.jpg");
+            URL url = getClass().getResource("Bullet Upgrade.JPG");
             image = ImageIO.read(url);
         } catch (Exception e) {
             //feel free to do something here
