@@ -29,6 +29,7 @@ public class Bullet_Upgrade extends MovingThing {
             image = ImageIO.read(url);
         } catch (Exception e) {
             //feel free to do something here
+            System.out.println("bingus");
         }
     }
 
