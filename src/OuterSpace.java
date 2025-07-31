@@ -16,6 +16,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
     private int ticks2;
     private int UPCollected;
     private boolean DEVMODE = false;
+    private Bullet_Upgrade UPSpawner ;
 
     private Ship ship1;
     private Ship ship2;
@@ -28,7 +29,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 
         keys = new boolean[5];
 
-        ship1 = new Ship( 360, 500, 50, 50, 3, 1);
+        ship1 = new Ship( 390, 500, 50, 50, 3, 1);
         ship2 = new Ship(260, 500, 50, 50, 3, 2);
 
         //instantiate what you need as you need it (from global objects above)
@@ -45,6 +46,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 
 
         UPCollected = 0;
+        UPSpawner = new Bullet_Upgrade(400,100,30,30,3);
     }
 
     public void update(Graphics window) {
@@ -93,7 +95,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 
         //if((int)(Math.random()*100)==1) {
         if(DEVMODE) {
-            Bullet_Upgrade UPSpawner = new Bullet_Upgrade(400,100,30,30,3);
+
             UPSpawner.draw(window);
         }
         //UPSpawner.draw(window);
