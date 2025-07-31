@@ -93,7 +93,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 
         //if((int)(Math.random()*100)==1) {
         if(DEVMODE) {
-            Bullet_Upgrade UPSpawner = new Bullet_Upgrade(100,100,30,30,3);
+            Bullet_Upgrade UPSpawner = new Bullet_Upgrade(400,100,30,30,3);
             UPSpawner.draw(window);
         }
         //UPSpawner.draw(window);
