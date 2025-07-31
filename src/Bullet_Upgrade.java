@@ -11,7 +11,7 @@ public class Bullet_Upgrade extends MovingThing {
 
     @Override
     public void move(String direction) {
-
+        setY(getY()-3);
     }
 
 
